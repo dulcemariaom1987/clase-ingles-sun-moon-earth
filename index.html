@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Fun: Sun, Moon and Earth</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2b2350;--card:#fff;--pink:#ff5e9c;--blue:#3ab0ff;--yel:#ffd23f;--grn:#2ecf8a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:"Fredoka","Comic Sans MS",system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,#7a5cff,#3ab0ff 55%,#2ecf8a) fixed;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;color:#fff}
+header h1{margin:0;font-size:clamp(18px,4.5vw,30px);text-shadow:0 3px 0 #0003}
+#sc{background:var(--yel);color:var(--ink);border-radius:999px;padding:6px 14px;font-weight:700;font-size:20px;white-space:nowrap}
+nav{display:flex;gap:8px;overflow-x:auto;padding:4px 14px 10px}
+nav button{flex:none;border:0;border-radius:18px;padding:10px 14px;font:inherit;font-weight:600;font-size:15px;background:#ffffffcc;color:var(--ink);cursor:pointer;box-shadow:0 4px 0 #0002}
+nav button.on{background:var(--pink);color:#fff;transform:translateY(2px)}
+#main{max-width:860px;margin:0 auto;padding:6px 14px 40px}
+.card{background:var(--card);border-radius:28px;padding:20px;margin-bottom:16px;box-shadow:0 8px 0 #0002}
+.c{text-align:center}
+h2{margin:0 0 8px;font-size:clamp(22px,5vw,32px)}
+p{font-size:clamp(16px,3.6vw,20px);line-height:1.4;margin:6px 0}
+.big{font-size:clamp(64px,18vw,120px);line-height:1.1}
+.btn{border:0;border-radius:20px;padding:14px 24px;font:inherit;font-weight:700;font-size:20px;color:#fff;background:var(--grn);cursor:pointer;box-shadow:0 6px 0 #1a9b66;margin:8px 4px}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #1a9b66}
+.btn.say{background:var(--blue);box-shadow:0 6px 0 #1e82c4}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:16px}
+.vc{border:0;border-radius:24px;padding:14px 10px;font:inherit;color:var(--ink);cursor:pointer;background:hsl(var(--h) 90% 88%);box-shadow:0 6px 0 hsl(var(--h) 60% 65%);display:flex;flex-direction:column;align-items:center;gap:4px}
+.vc b{font-size:26px}.vc small{font-size:14px}
+.vc:active{transform:scale(.95)}
+.vc.bump .big{animation:bump .5s}
+@keyframes bump{50%{transform:scale(1.35) rotate(-8deg)}}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:12px}
+.opt{border:4px solid #e6e0ff;background:#faf8ff;border-radius:22px;padding:12px;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:90px;justify-content:center}
+.opt span{font-size:clamp(40px,12vw,64px);line-height:1}.opt b{font-size:24px}
+.opt:hover{border-color:var(--blue)}
+.opt.good{background:#c9f7de;border-color:var(--grn);animation:bump .5s}
+.shake{animation:shake .4s;background:#ffe0e8;border-color:var(--pink)}
+@keyframes shake{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.bar{height:14px;background:#eee;border-radius:9px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--yel),var(--pink));transition:width .4s}
+.fb{min-height:28px;font-weight:700;text-align:center}
+.orb{position:relative;height:220px;margin:0 auto 6px;max-width:260px}
+.orb .sun,.orb .earth,.orb .moonx{position:absolute;top:50%;left:50%;width:60px;height:60px;margin:-30px;font-size:52px;text-align:center;line-height:60px}
+.orb .sun{font-size:80px;animation:spin 14s linear infinite}
+.orb .earth{width:44px;height:44px;margin:-22px;font-size:40px;line-height:44px;animation:orbit 9s linear infinite}
+.orb .moonx{left:88%;top:12%;animation:bob 2s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes orbit{from{transform:rotate(0) translateX(90px) rotate(0)}to{transform:rotate(360deg) translateX(90px) rotate(-360deg)}}
+@keyframes bob{50%{transform:translateY(12px)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dn{border-radius:22px;padding:14px;text-align:center;color:#fff}
+.dn.d{background:linear-gradient(#4fb8ff,#a6e3ff);color:var(--ink)}.dn.n{background:linear-gradient(#0b1040,#4a3a9a)}
+.dn button{border:0;border-radius:14px;padding:8px 14px;font:inherit;font-weight:700;font-size:18px;cursor:pointer;margin-top:6px}
+.cv{position:relative;aspect-ratio:2/1;border-radius:22px;overflow:hidden;margin:10px 0}
+.cv.day{background:linear-gradient(#5ec3ff,#d5f3ff)}.cv.night{background:linear-gradient(#0b1040,#3b2a7a)}
+.cv .gr{position:absolute;left:0;right:0;bottom:0;height:18%;background:#3cc46b}
+.cg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);padding:6px}
+.cell{margin:4px;border:2px dashed #ffffff88;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:clamp(26px,8vw,60px);line-height:1}
+.cell span{animation:pop .4s}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.pal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pc{border:4px solid #e6e0ff;background:#faf8ff;border-radius:18px;font-size:clamp(28px,9vw,48px);padding:8px;cursor:pointer}
+.pc.used{border-color:var(--grn);background:#c9f7de}
+.wr{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:2px dashed #e6e0ff}
+.we{font-size:clamp(44px,13vw,70px);min-width:80px;text-align:center}
+.wr input{font:inherit;font-size:24px;font-weight:600;width:100%;max-width:220px;border:4px solid #cfc6ff;border-radius:16px;padding:8px 12px;color:var(--ink)}
+.wr input.good{border-color:var(--grn);background:#c9f7de}.wr input.bad{border-color:var(--pink);background:#ffe0e8}
+.cf{position:fixed;top:-40px;z-index:99;pointer-events:none;animation:fall 1.7s ease-in forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(540deg)}}
+@media(max-width:480px){.two{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><h1>🌞 English Fun 🌙</h1><div id="sc">⭐ 0</div></header>
+<nav id="nav"></nav>
+<div id="main"></div>
+<script>
+const $=s=>document.querySelector(s);
+let AC,stars=0;
+function tone(f,t,d,ty){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime+t;o.type=ty||'sine';o.frequency.value=f;g.gain.setValueAtTime(.15,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(g);g.connect(AC.destination);o.start(n);o.stop(n+d)}catch(e){}}
+const sOk=()=>[523,659,784,1047].forEach((f,i)=>tone(f,i*.09,.2));
+const sBad=()=>{tone(220,0,.25,'square');tone(170,.15,.3,'square')};
+function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.8;u.pitch=1.1;const vs=speechSynthesis.getVoices();const v=vs.find(x=>x.lang==='en-US')||vs.find(x=>x.lang.indexOf('en')==0);if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+function burst(){for(let i=0;i<24;i++){const s=document.createElement('span');s.className='cf';s.textContent=['⭐','🎉','✨','🌈','💖'][i%5];s.style.cssText='left:'+Math.random()*100+'vw;animation-delay:'+Math.random()*.3+'s;font-size:'+(18+Math.random()*20)+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),2200)}}
+function win(){stars++;$('#sc').textContent='⭐ '+stars;sOk();burst()}
+const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const V=[['Sun','☀️','El Sol nos da luz y calor.'],['Moon','🌙','La Luna brilla en la noche.'],['Earth','🌍','La Tierra es nuestro hogar.'],['stars','⭐','Las estrellas son lucecitas del cielo.'],['day','🌤️','De día hay luz y vemos el Sol.'],['night','🌃','De noche hay oscuridad y vemos la Luna.']].map(a=>({w:a[0],e:a[1],d:a[2]}));
+
+/* ---------- motor de preguntas ---------- */
+function quiz(qs){const m=$('#main');let i=0,s=0;
+const go=()=>{
+ if(i>=qs.length){burst();sOk();m.innerHTML='<div class="card c"><div class="big">🏆</div><h2>¡Terminaste! ¡Eres un campeón!</h2><p>Acertaste '+s+' de '+qs.length+' a la primera.</p><button class="btn" id="re">🔄 Jugar otra vez</button></div>';$('#re').onclick=()=>quiz(sh(qs).map(q=>Object.assign({},q,{o:sh(q.o)})));return}
+ const q=qs[i];let tried=0,done=0;
+ m.innerHTML='<div class="card c"><div class="bar"><i style="width:'+(i/qs.length*100)+'%"></i></div><p><b>'+q.p+'</b></p>'+(q.big?'<div class="big">'+q.big+'</div>':'')+(q.say?'<button class="btn say" id="pl">🔊 Escuchar</button>':'')+'<div class="opts">'+q.o.map((o,k)=>'<button class="opt" data-k="'+k+'">'+(o.e?'<span>'+o.e+'</span>':'')+(o.l?'<b>'+o.l+'</b>':'')+'</button>').join('')+'</div><p class="fb" id="fb"></p></div>';
+ if(q.say){$('#pl').onclick=()=>say(q.say);setTimeout(()=>say(q.say),350)}
+ m.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(done)return;const o=q.o[b.dataset.k];if(q.so)say(o.l);
+  if(o.ok){done=1;b.classList.add('good');if(!tried){s++;win()}else sOk();$('#fb').textContent='¡Correcto! 🎉';setTimeout(()=>{i++;go()},1200)}
+  else{tried=1;sBad();b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),450);$('#fb').textContent='¡Casi! Inténtalo otra vez 💪'}})};
+go()}
+
+const S={};
+/* 1. Aprende */
+S.learn=()=>{$('#main').innerHTML='<div class="card c"><div class="orb"><span class="sun">☀️</span><span class="earth">🌍</span><span class="moonx">🌙</span></div><h2>¡Conoce el cielo!</h2><p>Toca cada tarjeta para <b>escuchar</b> cómo se dice en inglés.</p></div><div class="grid">'+V.map((v,k)=>'<button class="vc" data-k="'+k+'" style="--h:'+(k*58)+'"><div class="big">'+v.e+'</div><b>'+v.w+'</b><small>'+v.d+'</small><span>🔊</span></button>').join('')+'</div><div class="card"><h2>🌀 ¿Por qué hay día y noche?</h2><p>La Tierra gira como un trompo. Cuando tu lado de la Tierra mira al Sol, es <b>día</b>. Cuando mira hacia el otro lado, es <b>noche</b>.</p><div class="two"><div class="dn d"><div class="big">☀️</div><p><b>Day</b>: vemos el Sol, las nubes y los pájaros.</p><button data-s="day">🔊 Day</button></div><div class="dn n"><div class="big">🌙</div><p><b>Night</b>: vemos la Luna y las estrellas.</p><button data-s="night">🔊 Night</button></div></div></div>';
+ document.querySelectorAll('.vc').forEach(b=>b.onclick=()=>{say(V[b.dataset.k].w);b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')});
+ document.querySelectorAll('.dn button').forEach(b=>b.onclick=()=>say(b.dataset.s))};
+
+/* 2. Escucha y elige */
+S.listen=()=>{const qs=[];[0,1].forEach(()=>V.forEach(v=>qs.push({p:'Escucha y toca el dibujo correcto.',say:v.w,o:sh([v].concat(sh(V.filter(x=>x!==v)).slice(0,2))).map(x=>({e:x.e,ok:x===v}))})));quiz(sh(qs))};
+
+/* 3. Mira y elige la palabra */
+S.words=()=>quiz(sh(V.concat(V)).map(v=>({p:'¿Cómo se dice esto en inglés? Toca la palabra.',big:v.e,so:1,o:sh([v].concat(sh(V.filter(x=>x!==v)).slice(0,2))).map(x=>({l:x.w,ok:x===v}))})));
+
+/* 4. Quiz en español */
+const TF=[{e:'✅',l:'Verdad'},{e:'❌',l:'Mentira'}];
+S.quiz=()=>{const R=(p,o)=>({p:p,o:o});const E=(e,ok)=>({e:e,ok:!!ok});
+quiz(sh([
+ R('¿Qué nos da luz y calor?',[E('☀️',1),E('🌙'),E('⭐')]),
+ R('¿Qué brilla en el cielo de noche y es redonda?',[E('☀️'),E('🌙',1),E('🌍')]),
+ R('¿En qué planeta vivimos?',[E('🌍',1),E('☀️'),E('🌙')]),
+ R('¿Cuándo vemos las estrellas?',[{e:'🌤️',l:'Day'},{e:'🌃',l:'Night',ok:1}]),
+ R('¿Cuándo vemos el Sol en el cielo?',[{e:'🌤️',l:'Day',ok:1},{e:'🌃',l:'Night'}]),
+ R('Las plantas 🌱 necesitan la luz del Sol para crecer.',[{e:'✅',l:'Verdad',ok:1},{e:'❌',l:'Mentira'}]),
+ R('La Luna es una estrella muy caliente.',[{e:'✅',l:'Verdad'},{e:'❌',l:'Mentira',ok:1}]),
+ R('La Tierra gira como un trompo 🌀 y por eso hay día y noche.',[{e:'✅',l:'Verdad',ok:1},{e:'❌',l:'Mentira'}]),
+ R('El Sol sale de noche.',[{e:'✅',l:'Verdad'},{e:'❌',l:'Mentira',ok:1}])
+]))};
+
+/* 5. Día o noche */
+S.sort=()=>{const D=[['☀️',1],['🌙',0],['⭐',0],['🌈',1],['🦉',0],['🐦',1],['😴',0],['🏫',1],['☁️',1],['🦇',0],['🏖️',1]];
+quiz(sh(D).map(d=>({p:'¿Esto se ve o pasa de día o de noche? Toca la respuesta.',big:d[0],so:1,o:[{e:'🌤️',l:'Day',ok:!!d[1]},{e:'🌃',l:'Night',ok:!d[1]}]})))};
+
+/* 6. Construye */
+const SC=[{n:'DÍA',e:'🌤️',c:'day',w:'Day',ok:['☀️','☁️','🐦','🌈']},{n:'NOCHE',e:'🌃',c:'night',w:'Night',ok:['🌙','⭐','🦉','🦇']}];
+const P=['☀️','🌙','☁️','⭐','🐦','🦉','🌈','🦇'];
+S.build=(n)=>{n=n||0;const sc=SC[n],m=$('#main'),on=new Set();
+ m.innerHTML='<div class="card c"><h2>🎨 Construye la escena del '+sc.n+' '+sc.e+'</h2><p>Escena '+(n+1)+' de 2. Toca las piezas que <b>sí van</b> en el '+sc.n+'. Toca otra vez para quitarlas.</p><button class="btn say" id="sw">🔊 '+sc.w+'</button><div class="cv '+sc.c+'"><div class="gr"></div><div class="cg">'+P.map((p,k)=>'<div class="cell" id="c'+k+'"></div>').join('')+'</div></div><div class="pal">'+P.map((p,k)=>'<button class="pc" data-k="'+k+'">'+p+'</button>').join('')+'</div><button class="btn" id="ck">✅ Revisar mi escena</button><p class="fb" id="fb"></p><div id="nx"></div></div>';
+ $('#sw').onclick=()=>say(sc.w);
+ m.querySelectorAll('.pc').forEach(b=>b.onclick=()=>{const k=+b.dataset.k,p=P[k];if(on.has(p)){on.delete(p);b.classList.remove('used');$('#c'+k).innerHTML=''}else{on.add(p);b.classList.add('used');$('#c'+k).innerHTML='<span>'+p+'</span>';tone(660,0,.1)}});
+ $('#ck').onclick=()=>{const good=P.every(p=>on.has(p)===sc.ok.includes(p));
+  if(good){win();$('#fb').textContent='¡Perfecto! ¡Qué bonita escena! 🎉';$('#nx').innerHTML='<button class="btn" id="nb">'+(n==0?'Siguiente escena ➡️':'🔄 Empezar de nuevo')+'</button>';$('#nb').onclick=()=>S.build(n==0?1:0)}
+  else{sBad();$('#fb').textContent='Casi... revisa las piezas e inténtalo otra vez 💪'}}};
+
+/* 7. Escribe */
+const W=[['☀️','Es grande y amarillo. Nos da luz y calor.',['sun']],['🌙','Brilla en el cielo de noche.',['moon']],['🌍','Es nuestro planeta. Vivimos aquí.',['earth']],['⭐','Una lucecita que brilla de noche.',['star','stars']],['🌤️','Hay luz y vemos el Sol. Es de...',['day']],['🌃','Hay oscuridad y vemos la Luna. Es de...',['night']],['🦉','El búho vuela de...',['night']],['🐦','Los pájaros cantan de...',['day']],['😴','Los niños duermen de...',['night']],['🏫','Vamos a la escuela de...',['day']]];
+S.write=()=>{const got={};
+ $('#main').innerHTML='<div class="card"><h2>✍️ Escribe en inglés</h2><p>Mira el dibujo, lee la pista y escribe <b>una sola palabra</b> en inglés. ¡Tú puedes!</p>'+W.map((w,k)=>'<div class="wr"><div class="we">'+w[0]+'</div><div><p>'+w[1]+'</p><input id="w'+k+'" maxlength="8" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="..."></div></div>').join('')+'<div class="c"><button class="btn" id="ck">✅ Revisar</button><p class="fb" id="fb"></p></div></div>';
+ $('#ck').onclick=()=>{let c=0,nw=0;W.forEach((w,k)=>{const i=$('#w'+k),v=i.value.trim().toLowerCase();i.classList.remove('good','bad');if(!v)return;if(w[2].includes(v)){i.classList.add('good');c++;if(!got[k]){got[k]=1;nw++}}else i.classList.add('bad')});
+  if(nw){stars+=nw;$('#sc').textContent='⭐ '+stars;sOk();burst()}else if(c<W.length)sBad();
+  $('#fb').textContent=c==W.length?'¡Increíble! ¡Todo correcto! 🏆':'Tienes '+c+' de '+W.length+' bien. Corrige las rojas e inténtalo otra vez 💪'}};
+
+/* navegación */
+const T=[['learn','📚 Aprende'],['listen','👂 Escucha'],['words','🔤 Palabras'],['quiz','🧠 Quiz'],['sort','🌗 Día o noche'],['build','🎨 Construye'],['write','✍️ Escribe']];
+$('#nav').innerHTML=T.map(t=>'<button data-t="'+t[0]+'">'+t[1]+'</button>').join('');
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');try{speechSynthesis.cancel()}catch(e){}S[b.dataset.t]();window.scrollTo(0,0)});
+try{speechSynthesis.getVoices()}catch(e){}
+document.querySelector('#nav button').click();
+</script></body></html>
